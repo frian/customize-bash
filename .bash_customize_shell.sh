@@ -1,4 +1,3 @@
-alias aaaaaaaaaaaaaaaaaaaaa=cd
 
 # -- back : go to parent dir
 alias b='cd ..'
