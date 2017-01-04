@@ -75,3 +75,23 @@ alias q='exit'
 if [[ ! ":$PATH:" == *":$HOME/scripts:"* ]]; then
     export PATH=$PATH:$HOME/scripts
 fi
+
+# LESS man page colors (makes Man pages more readable).
+
+LESS_BLACK=$'\E[01;30m'
+LESS_RED=$'\E[01;31m'
+LESS_GREEN=$'\E[01;32m'
+LESS_YELLOW=$'\E[01;33m'
+LESS_BLUE=$'\E[01;34m'
+LESS_PURPLE=$'\E[01;35m'
+LESS_CYAN=$'\E[01;36m'
+LESS_WHITE=$'\E[01;37m'
+
+
+export LESS_TERMCAP_mb=${LESS_CYAN}
+export LESS_TERMCAP_md=${LESS_CYAN}
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=${LESS_YELLOW}
