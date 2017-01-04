@@ -1,3 +1,5 @@
+alias aaaaaaaaaaaaaaaaaaaaa=cd
+
 # -- back : go to parent dir
 alias b='cd ..'
 alias b2='cd ../..'
@@ -71,5 +73,6 @@ alias ping='ping -c 4'
 # -- quit : exit
 alias q='exit'
 
-
-export PATH=$PATH:$HOME/scripts
+if [[ ! ":$PATH:" == *":$HOME/scripts:"* ]]; then
+    export PATH=$PATH:$HOME/scripts
+fi
