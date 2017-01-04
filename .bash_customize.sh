@@ -1,5 +1,5 @@
 # -- add colors
-. ~/.bash_customize_colors.sh
+. ~/.bash_customize_colors
 
 # -- add shell customization
 . ~/.bash_customize_shell
