@@ -6,5 +6,5 @@ alias gitl='git log --decorate --all --oneline --graph'
 alias gits='git status'
 
 gitCommit() {
-    git commit -m \"$@\"
+    git commit -m "$@"
 }
