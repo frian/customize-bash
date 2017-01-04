@@ -48,29 +48,36 @@ else
 fi
 
 # -- define colors
-LOCAL_COLOR=36m  # blue
-SSH_COLOR=92m    # green
-TELNET_COLOR=35m # purple
-ROOT_COLOR=31m   # red
+LOCAL_COLOR=${Cyan}
+LOCAL_BOLD_COLOR=${BCyan}
+SSH_COLOR=${Green}
+SSH__BOLD_COLOR=${BGreen}
+TELNET_COLOR=${Purple}
+TELNET_BOLD_COLOR=${BPurple}
+ROOT_COLOR=${Red}
+ROOT_BOLD_COLOR=${BRed}
 
-COLOR=blue
 
 # -- set colors
 if [ $USR = priv ] ; then
     COLOR=$ROOT_COLOR
+    BOLD_COLOR=$ROOT_BOLD_COLOR
 elif [ $CONN = lcl -a $USR = nopriv ] ; then
     COLOR=$LOCAL_COLOR
+    BOLD_COLOR=$LOCAL_BOLD_COLOR
 elif [ $CONN = tel -a $USR = nopriv ] ; then
     COLOR=$TELNET_COLOR
+    BOLD_COLOR=$TELNET_BOLD_COLOR
 elif [ $CONN = ssh -a $USR = nopriv ] ; then
     COLOR=$SSH_COLOR
+    BOLD_COLOR=$SSH_BOLD_COLOR
 fi
 
 PROMPT_USER='\u'
 PROMPT_HOST='\h'
 
 # -- set prompt
-PS1="${debian_chroot:+($debian_chroot)}\[\033[1;$COLOR\]$PROMPT_USER@$PROMPT_HOST\[\033[0;$COLOR\]:\[\033[1;$COLOR\]\w\[\033[0;$COLOR\]\$ \[\033[00m\]"
+PS1="${debian_chroot:+($debian_chroot)}$BOLD_COLOR$PROMPT_USER@$PROMPT_HOST$COLOR:$BOLD_COLOR\w$COLOR\$ \[\033[00m\]"
 
 # -- export prompt
 export PS1
