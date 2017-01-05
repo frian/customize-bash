@@ -1,4 +1,4 @@
-INSTALLPATH=/home/lpa/.customize-bash
+INSTALLPATH=~/.customize-bash
 
 # -- add shell colors definitions
 . $INSTALLPATH/.bash_customize_shell
