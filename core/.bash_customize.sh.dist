@@ -1,7 +1,7 @@
 INSTALLPATH=~/.customize-bash
 
 # -- add shell colors definitions
-. $INSTALLPATH/.bash_customize_shell
+. $INSTALLPATH/.bash_customize_colors
 
 # -- add shell customization
 . $INSTALLPATH/.bash_customize_shell
