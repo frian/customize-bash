@@ -77,7 +77,7 @@ PROMPT_USER='\u'
 PROMPT_HOST='\h'
 
 # -- set prompt
-PS1="${debian_chroot:+($debian_chroot)}$BOLD_COLOR$PROMPT_USER@$PROMPT_HOST$COLOR:$BOLD_COLOR\w$COLOR\$ \[\033[00m\]"
+PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER@$PROMPT_HOST\[$COLOR\]:\[$BOLD_COLOR\]\w$COLOR\$ \[\033[00m\]"
 
 # -- export prompt
 export PS1

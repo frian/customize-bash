@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 
-
-
 #
 # -- get and cd in script dir
 #
@@ -15,31 +13,50 @@ SCRIPTPATH=$(dirname "${SCRIPT}")
 # -- cd to script dir for config sourcing
 cd $SCRIPTPATH
 
+
 #
-# -- copy files to $HOME remove file extension
+# -- create install dir if not exists
 #
-echo "  copy files to \$HOME"
-for file in .*.sh; do
-    cp "$file" "$HOME/`basename "$file" .sh`"
+INSTALLPATH=~/.customize-bash
+
+if [[ ! -d $INSTALLPATH ]]; then
+    mkdir $INSTALLPATH
+fi
+
+
+#
+# -- copy core files to $HOME/.customize-bash remove file extension
+#
+echo "  copy core files to \$HOME"
+for file in core/.*.sh; do
+    cp "$file" "$INSTALLPATH/`basename "$file" .sh`"
 done
 
 
-echo "  cd to \$HOME"
-cd $HOME
+#
+# -- copy personal files to $HOME/.customize-bash remove file extension
+#
+echo "  copy personal files to \$HOME"
+for file in personal/.*.sh; do
+    cp "$file" "$INSTALLPATH/`basename "$file" .sh`" 2>/dev/null
+done
 
 
 #
 # -- add . ~/.bash_customize to .bshrc
 #
 echo "  add .bash_customize sourcing to bash if not present"
-if ! grep -q ". ~/.bash_customize" .bashrc; then
+if ! grep -q ". $INSTALLPATH/.bash_customize" ~/.bashrc; then
     # -- add source the file to bashrc
     echo >> ~/.bashrc
-    echo "# -- shell customization" >> .bashrc
-    echo ". ~/.bash_customize" >> .bashrc
+    echo "# -- shell customization" >> ~/.bashrc
+    echo ". $INSTALLPATH/.bash_customize" >> ~/.bashrc
 fi
 
 
 # -- load bashrc
 echo "  reloading config"
 . ~/.bashrc
+
+
+cd - 1>/dev/null
