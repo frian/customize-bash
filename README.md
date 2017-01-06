@@ -1,4 +1,4 @@
-customize bashCore files
+customize bash
 ==============
 
 configurable and extendable bash customisation
