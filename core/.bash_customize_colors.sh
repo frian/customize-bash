@@ -3,15 +3,25 @@
 #
 
 # Normal Colors
-Black='\033[0;30m'        # Black
-Red='\033[0;31m'          # Red
-Green='\033[0;32m'        # Green
-Yellow='\033[0;33m'       # Yellow
-Blue='\033[0;34m'         # Blue
-Purple='\033[0;35m'       # Purple
-Cyan='\033[0;36m'         # Cyan
-White='\033[0;37m'        # White
+Black='\033[0;90m'        # Black
+Red='\033[0;91m'          # Red
+Green='\033[0;92m'        # Green
+Yellow='\033[0;93m'       # Yellow
+Blue='\033[0;94m'         # Blue
+Purple='\033[0;95m'       # Purple
+Cyan='\033[0;96m'         # Cyan
+White='\033[0;97m'        # White
 
+# Dark Colors
+DBlack='\033[0;30m'        # Black
+DRed='\033[0;31m'          # Red
+DGreen='\033[0;32m'        # Green
+DYellow='\033[0;33m'       # Yellow
+DBlue='\033[0;34m'         # Blue
+DPurple='\033[0;35m'       # Purple
+DCyan='\033[0;36m'         # Cyan
+DWhite='\033[0;37m'        # White
+    
 # Bold
 BBlack='\033[1;30m'       # Black
 BRed='\033[1;31m'         # Red
