@@ -1,4 +1,4 @@
 personal/
 !personal/.gitkeep
-!personal/.bash_customize_profile.sh
+!personal/.bash_customize_profile.sh.dist
 core/.bash_customize.sh
