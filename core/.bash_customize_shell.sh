@@ -1,4 +1,11 @@
 
+alias lal=myAliasCommand
+
+myAliasCommand () {
+    alias | awk -v Red=${Yellow} -v NC=${NC} -F"='" '{ printf "%s %-12s %s %s\n", Red ,$1, NC, $2 }' | sed 's/ //' | sed 's/alias//g'  | sed 's/ //' | tr -d "'"
+}
+
+
 # -- back : go to parent dir
 alias b='cd ..'
 alias b2='cd ../..'
