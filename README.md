@@ -15,7 +15,7 @@ clone or download
 
 #### configure
 
-copy files from samples or add your own files ( files must start with a dot and have the .sh extension )
+copy files from samples or add your own files to the personal folder ( files must start with a dot and have the .sh extension )
 
 create .bash_customize.sh
 

@@ -84,21 +84,3 @@ alias ping='ping -c 4'
 
 # -- quit
 alias q='exit'
-
-
-# -
-if [[ ! ":$PATH:" == *":$HOME/scripts:"* ]]; then
-    export PATH=$PATH:$HOME/scripts
-fi
-
-
-#
-# -- configure less colors
-#
-export LESS_TERMCAP_mb=${BCyan}
-export LESS_TERMCAP_md=${BCyan}
-export LESS_TERMCAP_me=${NC}
-export LESS_TERMCAP_se=${NC}
-export LESS_TERMCAP_so=$'\E[01;41;37m'
-export LESS_TERMCAP_ue=${NC}
-export LESS_TERMCAP_us="${BYellow} $(tput smul; tput bold;)"
