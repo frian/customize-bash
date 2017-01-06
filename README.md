@@ -10,9 +10,7 @@ configurable and extendable bash customisation
 Setup
 -----
 
-clone
-
-
+clone or download
 
 
 #### configure
@@ -46,16 +44,9 @@ Core files
 
 
 
-Sample personal files
+Samples files
 ---------------------
 
 some sample personal files.
 
 personal files have to be placed in the personal dir
-
-| File | Description |
-| --- | --- |
-| samples/.bash_customize_ssh.sh | ssh aliases and env variables |
-| samples/.bash_customize_git.sh | git aliases and env |
-| samples/.bash_customize_symfony.sh | symfony aliases and env |
-| samples/.bash_customize_compass.sh | compass aliases and env |
