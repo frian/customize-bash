@@ -1,27 +1,21 @@
 
-
-alias lal=myAliasCommand
-
-myAliasCommand () {
-    alias | awk -v COLOR=${Yellow} -v NC=${NC} -F"='" '{ printf "%s %-12s %s %s\n", COLOR ,$1, NC, $2 }' | sed 's/ //' | sed 's/alias//g'  | sed 's/ //' | tr -d "'"
-}
-
-
-# -- back : go to parent dir
+# -- go to parent dir
 alias b='cd ..'
 alias b2='cd ../..'
 alias b3='cd ../../..'
+alias b5='cd ../../../..'
+alias b5='cd ../../../../..'
 
 
-# -- clear : clear screen
+# -- clear screen
 alias c='clear'
 
 
-# -- fast find : find in current with case-insensitive name
+# -- find in current with case-insensitive name
 alias ffind="find . -iname "
 
 
-# -- color output
+# -- add colors to grep
 alias grep='grep --color=auto'
 
 
@@ -29,21 +23,32 @@ alias grep='grep --color=auto'
 alias h='history'
 
 
-# -- jobs
+# -- list jobs
 alias j='jobs -l'
 
+# -- list aliases
+alias lal=listAliasCommand
+
+# -- custom alias output
+listAliasCommand () {
+    alias | awk -v COLOR=${BYellow} -v NC=${NC} -F"='" '{ printf "%s %-12s %s %s\n", COLOR ,$1, NC, $2 }' | sed 's/ //' | sed 's/alias//g'  | sed 's/ //' | tr -d "'"
+}
+
+
+# -- add colors and directory grouping to ls
+alias ls='ls --color=auto --group-directories-first'
 
 # -- list hidden files and folders
 alias l.='ls -d .*'
+
 # -- long format
-alias ll='ls -l'
+alias ll='ls -lh'
+
 # -- list all minus . and ..
 alias la='ls -A'
 
-alias ls='ls --color=auto'
 
-
-# -- create parent div
+# -- add create parent to mkdir
 alias mkdir='mkdir -pv'
 
 
@@ -73,20 +78,23 @@ alias now='date +"%d-%m-%Y %T"'
 alias ports='netstat -tulanp'
 
 
-# -- ping 4 times
+# -- add 4 requests limit to ping
 alias ping='ping -c 4'
 
 
-# -- quit : exit
+# -- quit
 alias q='exit'
 
+
+# -
 if [[ ! ":$PATH:" == *":$HOME/scripts:"* ]]; then
     export PATH=$PATH:$HOME/scripts
 fi
 
 
-
-
+#
+# -- configure less colors
+#
 export LESS_TERMCAP_mb=${BCyan}
 export LESS_TERMCAP_md=${BCyan}
 export LESS_TERMCAP_me=${NC}
