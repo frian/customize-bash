@@ -60,7 +60,7 @@ NC=$(tput sgr0)               # Color Reset
 # -- grep colors --------------------------------------------------------------
 #
 
-export GREP_COLORS='ms=01;31:mc=01;32:sl=:cx=:fn=93:ln=01;93:bn=31:se=33'
+export GREP_COLORS='ms=01;31:mc=01;32:sl=:cx=:fn=93:ln=01;93:bn=96:se=33'
 
 # GREP_COLORS
 #           Specifies the colors and other attributes used to highlight various  parts  of  the
