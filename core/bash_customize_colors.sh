@@ -3,54 +3,56 @@
 #
 
 # Normal Colors
-Black=$(tput setaf 0)      # Black
-Red=$(tput setaf 9)        # Red
-Green=$(tput setaf 10)     # Green
-Yellow=$(tput setaf 11)    # Yellow
-Blue=$(tput setaf 12)      # Blue
-Purple=$(tput setaf 13)    # Purple
-Cyan=$(tput setaf 14)      # Cyan
-White=$(tput setaf 15)     # White
+Black='\033[0;90m'        # Black
+Red='\033[0;91m'          # Red
+Green='\033[0;92m'        # Green
+Yellow='\033[0;93m'       # Yellow
+Blue='\033[0;94m'         # Blue
+Purple='\033[0;95m'       # Purple
+Cyan='\033[0;96m'         # Cyan
+White='\033[0;97m'        # White
 
 # Dark Colors
-DBlack=$(tput setaf 16)     # Black
-DRed=$(tput setaf 1)        # Red
-DGreen=$(tput setaf 2)      # Green
-DYellow=$(tput setaf 3)     # Yellow
-DBlue=$(tput setaf 4)       # Blue
-DPurple=$(tput setaf 5)     # Purple
-DCyan=$(tput setaf 6)       # Cyan
-DWhite=$(tput setaf 7)      # White
-
+DBlack='\033[0;30m'        # Black
+DRed='\033[0;31m'          # Red
+DGreen='\033[0;32m'        # Green
+DYellow='\033[0;33m'       # Yellow
+DBlue='\033[0;34m'         # Blue
+DPurple='\033[0;35m'       # Purple
+DCyan='\033[0;36m'         # Cyan
+DWhite='\033[0;37m'        # White
+    
 # Bold
-BBlack=$(tput bold; tput setaf 0)      # Black
-BRed=$(tput bold; tput setaf 9)        # Red
-BGreen=$(tput bold; tput setaf 10)     # Green
-BYellow=$(tput bold; tput setaf 11)    # Yellow
-BBlue=$(tput bold; tput setaf 12)      # Blue
-BPurple=$(tput bold; tput setaf 13)    # Purple
-BCyan=$(tput bold; tput setaf 14)      # Cyan
-BWhite=$(tput bold; tput setaf 15)     # White
+BBlack='\033[1;30m'       # Black
+BRed='\033[1;31m'         # Red
+BGreen='\033[1;32m'       # Green
+BYellow='\033[1;33m'      # Yellow
+BBlue='\033[1;34m'        # Blue
+BPurple='\033[1;35m'      # Purple
+BCyan='\033[1;36m'        # Cyan
+BWhite='\033[1;37m'       # White
 
 # Background
-On_Black=$(tput setab 0)      # Black
-On_Red=$(tput setab 9)        # Red
-On_Green=$(tput setab 10)     # Green
-On_Yellow=$(tput setab 11)    # Yellow
-On_Blue=$(tput setab 12)      # Blue
-On_Purple=$(tput setab 13)    # Purple
-On_Cyan=$(tput setab 14)      # Cyan
-On_White=$(tput setab 15)     # White
+On_Black='\033[40m'       # Black
+On_Red='\033[41m'         # Red
+On_Green='\033[42m'       # Green
+On_Yellow='\033[43m'      # Yellow
+On_Blue='\033[44m'        # Blue
+On_Purple='\033[45m'      # Purple
+On_Cyan='\033[46m'        # Cyan
+On_White='\033[47m'       # White
 
-# Dark BaOn_Dckground
-On_DBlack=$(tput setaf 16)     # Black
-On_DRed=$(tput setaf 1)        # Red
-On_DGreen=$(tput setaf 2)      # Green
-On_DYellow=$(tput setaf 3)     # Yellow
-On_DBlue=$(tput setaf 4)       # Blue
-On_DPurple=$(tput setaf 5)     # Purple
-On_DCyan=$(tput setaf 6)       # Cyan
-On_DWhite=$(tput setaf 7)      # White
+NC="\033[m"               # Color Reset
 
 
-NC=$(tput sgr0)               # Color Reset
+#
+# -- less colors --------------------------------------------------------------
+#
+LESS_BLACK=$'\033[01;30m'
+LESS_RED=$'\033[01;31m'
+LESS_GREEN=$'\033[01;32m'
+LESS_YELLOW=$'\033[01;33m'
+LESS_BLUE=$'\033[01;34m'
+LESS_PURPLE=$'\033[01;35m'
+LESS_CYAN=$'\033[01;36m'
+LESS_WHITE=$'\033[01;37m'
