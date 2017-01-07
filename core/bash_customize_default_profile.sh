@@ -1,22 +1,8 @@
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+
 
 #
 # -- less colors
 #
-# export LESS_TERMCAP_mb=${LESS_Cyan}
-# export LESS_TERMCAP_md=${LESS_Cyan}
-# export LESS_TERMCAP_me=$(tput sgr0)
-# export LESS_TERMCAP_se=$(tput sgr0)
-# export LESS_TERMCAP_so=$'\E[01;41;37m'
-# export LESS_TERMCAP_ue=$(tput sgr0)
-# export LESS_TERMCAP_us=${LESS_Yellow}
 
 export LESS_TERMCAP_mb=${LESS_CYAN}
 export LESS_TERMCAP_md=${LESS_CYAN}

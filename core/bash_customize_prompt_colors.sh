@@ -47,23 +47,6 @@ else
   USR=nopriv
 fi
 
-# -- define colors
-LOCAL_COLOR=${Cyan}
-LOCAL_DARK_COLOR=${DCyan}
-LOCAL_BOLD_COLOR=${BCyan}
-
-SSH_COLOR=${Green}
-SSH_DARK_COLOR=${DGreen}
-SSH_BOLD_COLOR=${BGreen}
-
-TELNET_COLOR=${Purple}
-TELNET_DARK_COLOR=${DPurple}
-TELNET_BOLD_COLOR=${BPurple}
-
-ROOT_COLOR=${Red}
-ROOT_DARK_COLOR=${DRed}
-ROOT_BOLD_COLOR=${BRed}
-
 
 # -- set colors
 if [ $USR = priv ] ; then

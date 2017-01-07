@@ -30,24 +30,43 @@ else
 fi
 
 #
-# -- generate core/.bash_customize.sh
+# -- generate core/bash_customize.sh
 #
 CONFIG_FILE=profiles/$PROFILE/bash_customize.sh
 CONFIG_TMP_FILE=profiles/$PROFILE/bash_customize.sh.tmp
-
 
 
 if [[ -e $CONFIG_FILE ]]; then
     rm $CONFIG_FILE
 fi
 
+
 # -- add install path
 echo INSTALLPATH=$HOME/.customize-bash >> $CONFIG_TMP_FILE
 
-# -- add core files
-for file in core/*.sh; do
-    echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
-done
+
+#
+# -- add files to source. Order is important !
+#
+
+# -- 1 add colors definition
+echo . $INSTALLPATH/.bash_customize_colors >> $CONFIG_TMP_FILE
+
+# -- 2 add user profile
+echo . $INSTALLPATH/.bash_customize_profile >> $CONFIG_TMP_FILE
+
+# -- 3 add prompt colors
+echo . $INSTALLPATH/.bash_customize_prompt_colors >> $CONFIG_TMP_FILE
+
+# -- 4 add shell definition
+echo . $INSTALLPATH/.bash_customize_shell >> $CONFIG_TMP_FILE
+
+
+# # -- add core files
+# for file in core/*.sh; do
+#     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
+# done
+
 
 # -- add profile files
 for file in profiles/$PROFILE/*.sh; do
@@ -61,7 +80,6 @@ sed -i '/.*\.\*$/d' $CONFIG_TMP_FILE 1>/dev/null
 
 mv $CONFIG_TMP_FILE $CONFIG_FILE
 
-# exit
 
 #
 # -- copy core files to $HOME/.customize-bash remove file extension

@@ -2,3 +2,39 @@
 # if [[ ! ":$PATH:" == *":$HOME/scripts:"* ]]; then
 #     export PATH=$PATH:$HOME/scripts
 # fi
+
+#
+# -- set promt colors
+#
+LOCAL_COLOR=${Cyan}
+LOCAL_DARK_COLOR=${DCyan}
+LOCAL_BOLD_COLOR=${BCyan}
+
+SSH_COLOR=${Green}
+SSH_DARK_COLOR=${DGreen}
+SSH_BOLD_COLOR=${BGreen}
+
+TELNET_COLOR=${Purple}
+TELNET_DARK_COLOR=${DPurple}
+TELNET_BOLD_COLOR=${BPurple}
+
+ROOT_COLOR=${Red}
+ROOT_DARK_COLOR=${DRed}
+ROOT_BOLD_COLOR=${BRed}
+
+#
+# -- set less colors
+#
+export LESS_TERMCAP_mb=${LESS_CYAN}
+export LESS_TERMCAP_md=${LESS_CYAN}
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;41;37m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=${LESS_YELLOW}
+
+
+#
+# -- grep colors --------------------------------------------------------------
+#
+export GREP_COLORS='ms=01;31:mc=01;32:sl=:cx=:fn=93:ln=01;93:bn=96:se=33'
