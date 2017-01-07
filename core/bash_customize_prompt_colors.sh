@@ -49,27 +49,38 @@ fi
 
 # -- define colors
 LOCAL_COLOR=${Cyan}
+LOCAL_DARK_COLOR=${DCyan}
 LOCAL_BOLD_COLOR=${BCyan}
+
 SSH_COLOR=${Green}
-SSH__BOLD_COLOR=${BGreen}
+SSH_DARK_COLOR=${DGreen}
+SSH_BOLD_COLOR=${BGreen}
+
 TELNET_COLOR=${Purple}
+TELNET_DARK_COLOR=${DPurple}
 TELNET_BOLD_COLOR=${BPurple}
+
 ROOT_COLOR=${Red}
+ROOT_DARK_COLOR=${DRed}
 ROOT_BOLD_COLOR=${BRed}
 
 
 # -- set colors
 if [ $USR = priv ] ; then
     COLOR=$ROOT_COLOR
+    DARK_COLOR=$ROOT_DARK_COLOR
     BOLD_COLOR=$ROOT_BOLD_COLOR
 elif [ $CONN = lcl -a $USR = nopriv ] ; then
     COLOR=$LOCAL_COLOR
+    DARK_COLOR=$LOCAL_DARK_COLOR
     BOLD_COLOR=$LOCAL_BOLD_COLOR
 elif [ $CONN = tel -a $USR = nopriv ] ; then
     COLOR=$TELNET_COLOR
+    DARK_COLOR=$TELNET_DARK_COLOR
     BOLD_COLOR=$TELNET_BOLD_COLOR
 elif [ $CONN = ssh -a $USR = nopriv ] ; then
     COLOR=$SSH_COLOR
+    DARK_COLOR=$SSH_DARK_COLOR
     BOLD_COLOR=$SSH_BOLD_COLOR
 fi
 
@@ -77,7 +88,18 @@ PROMPT_USER='\u'
 PROMPT_HOST='\h'
 
 # -- set prompt
-PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER@$PROMPT_HOST\[$COLOR\]:\[$BOLD_COLOR\]\w\[$COLOR\]\$ \[\033[00m\]"
+PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER\[$NC\]\[$DARK_COLOR\]@\[$NC\]\[$BOLD_COLOR\]$PROMPT_HOST\[$NC\]\[$DARK_COLOR\]:\[$COLOR\]\w\[$DARK_COLOR\]\$ \[\033[00m\]"
+
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
 
 # -- export prompt
 export PS1
