@@ -17,7 +17,7 @@ copy files from samples or add your own files to the profiles/default folder ( f
 ##### create .bash_customize_profile.sh
 
 ```bash
-cp bash_customize_profile.sh bash_customize_profile.sh
+cp bash_customize_profile.sh.dist bash_customize_profile.sh
 ```
 
 add your environment variable
