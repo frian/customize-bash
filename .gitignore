@@ -1,6 +1,5 @@
-core/bash_customize.sh
-!profiles/default/bash_customize_profile.sh
-!profiles/default/bash_customize.sh
+!profiles/default/bash_customize_profile.sh.dist
+!profiles/default/bash_customize.sh.dist
 
 profiles/
 
