@@ -11,15 +11,8 @@ clone or download
 
 ### configure
 
-copy files from samples or add your own files to the personal folder ( files must have .sh extension )
+copy files from samples or add your own files to the profiles/default folder ( files must have .sh extension )
 
-##### create bash_customize.sh
-
-```bash
-cp bash_customize.sh.dist bash_customize.sh
-```
-
-uncomment the scripts from samples and add your own scripts
 
 ##### create .bash_customize_profile.sh
 
