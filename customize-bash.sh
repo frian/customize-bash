@@ -46,13 +46,11 @@ echo INSTALLPATH=$HOME/.customize-bash >> $CONFIG_TMP_FILE
 
 # -- add core files
 for file in core/*.sh; do
-    echo $file
     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
 done
 
 # -- add profile files
 for file in profiles/$PROFILE/*.sh; do
-    echo $file
     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
 done
 
