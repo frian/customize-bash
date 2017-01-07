@@ -50,7 +50,7 @@ for file in core/*.sh; do
     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
 done
 
-# -- add personal files
+# -- add profile files
 for file in profiles/$PROFILE/*.sh; do
     echo $file
     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
