@@ -29,3 +29,21 @@ add your environment variable
 ```bash
 . customize-bash.sh
 ```
+
+Create a profile
+----------------
+
+create a profile dir
+
+```bash
+mkdir profiles/newprofile
+```
+add a bash_customize_profile.sh file
+
+add needed files
+
+install
+
+```bash
+. customize-bash.sh newprofile
+```

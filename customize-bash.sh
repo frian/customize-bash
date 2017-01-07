@@ -1,4 +1,4 @@
-    #!/usr/bin/bash
+#!/usr/bin/bash
 
 #
 # -- get and cd in script dir
@@ -12,6 +12,19 @@ SCRIPTPATH=$(dirname "${SCRIPT}")
 
 # -- default profile
 PROFILE=default
+
+#
+# -- set profile
+#
+if [[ $1 ]]; then
+    if [[ -d profiles/$1 ]]; then
+        PROFILE=$1
+    else
+        echo "  profile $1 not found"
+        return
+    fi
+fi
+
 
 # -- cd to script dir for config sourcing
 cd $SCRIPTPATH
