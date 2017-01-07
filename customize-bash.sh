@@ -36,6 +36,7 @@ CONFIG_FILE=profiles/$PROFILE/bash_customize.sh
 CONFIG_TMP_FILE=profiles/$PROFILE/bash_customize.sh.tmp
 
 
+# -- delete existing config file
 if [[ -e $CONFIG_FILE ]]; then
     rm $CONFIG_FILE
 fi
@@ -62,14 +63,12 @@ echo . $INSTALLPATH/.bash_customize_prompt_colors >> $CONFIG_TMP_FILE
 echo . $INSTALLPATH/.bash_customize_shell >> $CONFIG_TMP_FILE
 
 
-# # -- add core files
-# for file in core/*.sh; do
-#     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
-# done
-
-
 # -- add profile files
 for file in profiles/$PROFILE/*.sh; do
+    # -- skip previously added file
+    if [[ $file =~ 'bash_customize_profile.sh' ]]; then
+        continue
+    fi
     echo . "$INSTALLPATH/.`basename "$file" .sh`" >> $CONFIG_TMP_FILE
 done
 
@@ -115,5 +114,5 @@ fi
 echo "  reloading config"
 . ~/.bashrc
 
-
+# return to calling dir
 cd - 1>/dev/null
