@@ -21,8 +21,10 @@ INSTALLPATH=~/.customize-bash
 
 if [[ ! -d $INSTALLPATH ]]; then
     mkdir $INSTALLPATH
+else
+    # rm -rf $INSTALLPATH/*
+    rm -rf $INSTALLPATH/.* $INSTALLPATH/* 2>/dev/null
 fi
-
 
 # #
 # # -- generate core/.bash_customize.sh
@@ -59,8 +61,8 @@ fi
 # -- copy core files to $HOME/.customize-bash remove file extension
 #
 echo "  copy core files to \$HOME"
-for file in core/.*.sh; do
-    cp "$file" "$INSTALLPATH/`basename "$file" .sh`"
+for file in core/*.sh; do
+    cp "$file" "$INSTALLPATH/.`basename "$file" .sh`"
 done
 
 
@@ -68,8 +70,8 @@ done
 # -- copy personal files to $HOME/.customize-bash remove file extension
 #
 echo "  copy personal files to \$HOME"
-for file in personal/.*.sh; do
-    cp "$file" "$INSTALLPATH/`basename "$file" .sh`" 2>/dev/null
+for file in personal/*.sh; do
+    cp "$file" "$INSTALLPATH/.`basename "$file" .sh`" 2>/dev/null
 done
 
 
