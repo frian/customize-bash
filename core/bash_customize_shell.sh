@@ -16,7 +16,7 @@ alias ffind="find . -iname "
 
 
 # -- add colors to grep
-alias grep='grep --color=auto'
+alias grep='grep --color=always'
 
 
 # -- history
@@ -36,7 +36,7 @@ listAliasCommand () {
 
 
 # -- add colors and directory grouping to ls
-alias ls='ls --color=auto --group-directories-first'
+alias ls='ls --color=always --group-directories-first'
 
 # -- list hidden files and folders
 alias l.='ls -d .*'
