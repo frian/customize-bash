@@ -21,7 +21,7 @@ DBlue='\033[0;34m'         # Blue
 DPurple='\033[0;35m'       # Purple
 DCyan='\033[0;36m'         # Cyan
 DWhite='\033[0;37m'        # White
-    
+
 # Bold
 BBlack='\033[1;30m'       # Black
 BRed='\033[1;31m'         # Red
@@ -48,11 +48,11 @@ NC="\033[m"               # Color Reset
 #
 # -- less colors --------------------------------------------------------------
 #
-LESS_BLACK=$'\033[01;30m'
-LESS_RED=$'\033[01;31m'
-LESS_GREEN=$'\033[01;32m'
-LESS_YELLOW=$'\033[01;33m'
-LESS_BLUE=$'\033[01;34m'
-LESS_PURPLE=$'\033[01;35m'
-LESS_CYAN=$'\033[01;36m'
-LESS_WHITE=$'\033[01;37m'
+LESS_BLACK=$'\E[01;30m'
+LESS_RED=$'\E[01;31m'
+LESS_GREEN=$'\E[01;32m'
+LESS_YELLOW=$'\E[01;33m'
+LESS_BLUE=$'\E[01;34m'
+LESS_PURPLE=$'\E[01;35m'
+LESS_CYAN=$'\E[01;36m'
+LESS_WHITE=$'\E[01;37m'
