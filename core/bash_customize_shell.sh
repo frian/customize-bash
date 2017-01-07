@@ -3,7 +3,7 @@
 alias b='cd ..'
 alias b2='cd ../..'
 alias b3='cd ../../..'
-alias b5='cd ../../../..'
+alias b4='cd ../../../..'
 alias b5='cd ../../../../..'
 
 
@@ -11,8 +11,8 @@ alias b5='cd ../../../../..'
 alias c='clear'
 
 
-# -- find in current with case-insensitive name
-alias ffind="find . -iname "
+# -- find in current dir with case-insensitive name
+alias nfind="find . -iname "
 
 
 # -- add colors to grep
@@ -26,14 +26,20 @@ alias h='history'
 # -- list jobs
 alias j='jobs -l'
 
+
 # -- list aliases
 alias lal=listAliasCommand
+
 
 # -- custom alias output
 listAliasCommand () {
     alias | awk -v COLOR=${BYellow} -v NC=${NC} -F"='" '{ printf "%s %-12s %s %s\n", COLOR ,$1, NC, $2 }' | sed 's/ //' | sed 's/alias//g'  | sed 's/ //' | tr -d "'"
 }
 
+
+#
+# -- ls aliases
+#
 
 # -- add colors and directory grouping to ls
 alias ls='ls --color=always --group-directories-first'
