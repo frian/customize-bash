@@ -14,10 +14,10 @@ clone or download
 copy files from samples or add your own files to the profiles/default folder ( files must have .sh extension )
 
 
-##### create .bash_customize_profile.sh
+##### create bash_customize_profile.sh
 
 ```bash
-cp bash_customize_profile.sh.dist bash_customize_profile.sh
+cp profiles/default/bash_customize_profile.sh.dist profiles/default/bash_customize_profile.sh
 ```
 
 add your environment variable
@@ -27,5 +27,5 @@ add your environment variable
 #### install
 
 ```bash
-. bash_customize.sh
+. customize-bash.sh
 ```
