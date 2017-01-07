@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+    #!/usr/bin/bash
 
 #
 # -- get and cd in script dir
@@ -70,7 +70,7 @@ done
 # -- copy personal files to $HOME/.customize-bash remove file extension
 #
 echo "  copy personal files to \$HOME"
-for file in personal/*.sh; do
+for file in profiles/default/*.sh; do
     cp "$file" "$INSTALLPATH/.`basename "$file" .sh`" 2>/dev/null
 done
 
