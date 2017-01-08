@@ -3,6 +3,7 @@
 #     export PATH=$PATH:$HOME/scripts
 # fi
 
+
 #
 # -- set promt colors
 #
@@ -21,6 +22,19 @@ TELNET_BOLD_COLOR=${BPurple}
 ROOT_COLOR=${Red}
 ROOT_DARK_COLOR=${DRed}
 ROOT_BOLD_COLOR=${BRed}
+
+
+#
+# -- configure less
+#
+# -e    exit on second end of file
+# -F    quit on one screen
+# -g    highlight only first match
+# -i    case-insensitive search
+# -M    long prompt
+# -R    escape control
+export LESS='-e -F -g -i -M -R'
+
 
 #
 # -- set less colors
