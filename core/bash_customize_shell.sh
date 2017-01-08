@@ -11,12 +11,26 @@ alias b5='cd ../../../../..'
 alias c='clear'
 
 
-# -- find in current dir with case-insensitive name
-alias nfind="find . -iname "
+# -- add better output
+alias df='df -kTh'
 
+
+# -- add better output
+alias du='du -h'
+
+
+#
+# -- add colors to greps
+#
+
+# -- add colors to egrep
+alias grep='egrep --color=always'
 
 # -- add colors to grep
 alias grep='grep --color=always'
+
+# -- add colors to fgrep
+alias grep='fgrep --color=always'
 
 
 # -- history
@@ -30,6 +44,8 @@ alias j='jobs -l'
 # -- list aliases
 alias lal=listAliasCommand
 
+# -- show lib path in a readable format
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
 # -- custom alias output
 listAliasCommand () {
@@ -41,21 +57,34 @@ listAliasCommand () {
 # -- ls aliases
 #
 
-# -- add colors and directory grouping to ls
-alias ls='ls --color=always --group-directories-first'
+# -- add colors, directory grouping and human-readable sizes to ls
+alias ls='ls --color=always --group-directories-first -h'
 
 # -- list hidden files and folders
 alias l.='ls -d .*'
 
 # -- long format
-alias ll='ls -lh'
+alias ll='ls -l'
 
 # -- list all minus . and ..
 alias la='ls -A'
 
+# -- sort by extension.
+alias lx='ll -XB'
+
+#  Sort by size, biggest last.
+alias lk='ll -Sr'
+
+#  Sort by date, most recent last.
+alias lt='ll -tr'
+
 
 # -- add create parent to mkdir
 alias mkdir='mkdir -pv'
+
+
+# -- find in current dir with case-insensitive name
+alias nfind="find . -iname "
 
 
 # -- show path in a readable format
@@ -90,3 +119,11 @@ alias ping='ping -c 4'
 
 # -- quit
 alias q='exit'
+
+
+# -- enable aliases in sudo
+alias sudo='sudo '
+
+
+# -- add resume to wget
+alias wget='wget -c'
