@@ -47,3 +47,11 @@ install
 ```bash
 . customize-bash.sh newprofile
 ```
+
+## Changelog
+
+Check the [Changelog](CHANGELOG.md)
+
+## License
+
+[MIT](https://en.wikipedia.org/wiki/MIT_License)
