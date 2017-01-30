@@ -5,6 +5,13 @@
 
 
 #
+# -- set promt user and host
+#
+PROMPT_USER='\u'
+PROMPT_HOST='\h'
+
+
+#
 # -- set promt colors
 #
 LOCAL_COLOR=${Cyan}

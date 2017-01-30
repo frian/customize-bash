@@ -67,9 +67,6 @@ elif [ $CONN = ssh -a $USR = nopriv ] ; then
     BOLD_COLOR=$SSH_BOLD_COLOR
 fi
 
-PROMPT_USER='\u'
-PROMPT_HOST='\h'
-
 # -- set prompt
 PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER\[$NC\]\[$DARK_COLOR\]@\[$NC\]\[$BOLD_COLOR\]$PROMPT_HOST\[$NC\]\[$DARK_COLOR\]:\[$COLOR\]\w\[$DARK_COLOR\]\$ \[\033[00m\]"
 
@@ -77,7 +74,7 @@ PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER\[$NC\]\[$DARK
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$PROMPT_USER@$PROMPT_HOST: \w\a\]$PS1"
     ;;
 *)
     ;;
