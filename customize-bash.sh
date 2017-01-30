@@ -112,12 +112,15 @@ done
 
 
 #
-# -- add . ~/.bash_customize to .bshrc
+# -- add . ~/.bash_customize to .bashrc
 #
 echo "  add .bash_customize sourcing to bash if not present"
-if ! grep -q ". $INSTALLPATH/.bash_customize" ~/.bashrc; then
+if [[ -f ~/.bashrc ]] && ! grep -q ". $INSTALLPATH/.bash_customize" ~/.bashrc ; then
     # -- add source the file to bashrc
     echo >> ~/.bashrc
+    echo "# -- shell customization" >> ~/.bashrc
+    echo ". $INSTALLPATH/.bash_customize" >> ~/.bashrc
+elif [[ ! -f ~/.bashrc ]]; then
     echo "# -- shell customization" >> ~/.bashrc
     echo ". $INSTALLPATH/.bash_customize" >> ~/.bashrc
 fi
