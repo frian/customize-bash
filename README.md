@@ -3,8 +3,16 @@ customize bash
 
 configurable and extendable bash customisation
 
-Setup
------
+## Usage
+
+```
+usage : source customize-bash.sh [ -f startup_file ] [ profile ]
+
+  startup_file : .bash_profile, .bash_login, .profile, .bashrc (default)
+```
+
+## Setup
+
 
 clone or download
 
@@ -20,7 +28,7 @@ create bash_customize_profile.sh
 cp profiles/default/bash_customize_profile.sh.dist profiles/default/bash_customize_profile.sh
 ```
 
-add your environment variable
+add your environment variables
 
 
 
@@ -30,8 +38,7 @@ install
 . customize-bash.sh
 ```
 
-Create a profile
-----------------
+## Create a profile
 
 create a profile dir
 
