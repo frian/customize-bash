@@ -1,17 +1,75 @@
 #!/usr/bin/bash
 
+# -- default profile
+PROFILE=default
+
+# -- startup files list
+STARTUPFILES=( .bash_profile .bash_login .profile .bashrc )
+
+# -- default startup file
+STARTUPFILE=.bashrc
+
+
+error=$(tput setaf 9)
+info=$(tput setaf 11)
+reset=$(tput sgr0)
+
 #
 # -- get and cd in script dir
 #
 
-# -- Absolute path to this script
+# -- absolute path to this script
 SCRIPT=${BASH_SOURCE[0]}
 
-# -- Absolute path to script dir
+# -- absolute path to script dir
 SCRIPTPATH=$(dirname "${SCRIPT}")
 
-# -- default profile
-PROFILE=default
+# -- cd to script dir for config sourcing
+cd $SCRIPTPATH
+
+
+# -- enable getopts in sourced script
+OPTIND=1
+
+while getopts ":f:" opt; do
+    case $opt in
+        f)
+            # -- check if file is startup file
+            if [[ ! " ${STARTUPFILES[@]} " =~ " ${OPTARG} " ]];then
+
+                echo -e "\n  ${error}ERROR${reset} : the provided file name ${info}$OPTARG${reset} is not a bash startup file !\n"
+
+                echo -e "  select one of : \n"
+                for i in "${STARTUPFILES[@]}"
+                do
+                   echo "    $i"
+                done
+                echo
+
+                return
+            fi
+
+
+            # -- store file name
+            STARTUPFILE=$OPTARG
+        ;;
+        \?)
+            # -- invalid option
+            echo "  invalid option: -$OPTARG" >&2
+            return 1
+        ;;
+        :)
+            # -- missing argument
+            echo "  option -$OPTARG requires an argument." >&2
+            return 1
+        ;;
+    esac
+done
+
+
+# -- get next argument
+shift $(expr $OPTIND - 1 )
+
 
 #
 # -- set profile
@@ -20,14 +78,10 @@ if [[ $1 ]]; then
     if [[ -d profiles/$1 ]]; then
         PROFILE=$1
     else
-        echo "  profile $1 not found"
+        echo -e "\n  ${error}ERROR${reset} : profile ${info}$1${reset} not found !\n"
         return
     fi
 fi
-
-
-# -- cd to script dir for config sourcing
-cd $SCRIPTPATH
 
 
 #
@@ -112,17 +166,17 @@ done
 
 
 #
-# -- add . ~/.bash_customize to .bashrc
+# -- add . ~/.bash_customize to STARTUPFILE
 #
 echo "  add .bash_customize sourcing to bash if not present"
-if [[ -f ~/.bashrc ]] && ! grep -q ". $INSTALLPATH/.bash_customize" ~/.bashrc ; then
+if [[ -f ~/$STARTUPFILE ]] && ! grep -q ". $INSTALLPATH/.bash_customize" ~/$STARTUPFILE ; then
     # -- add source the file to bashrc
-    echo >> ~/.bashrc
-    echo "# -- shell customization" >> ~/.bashrc
-    echo ". $INSTALLPATH/.bash_customize" >> ~/.bashrc
-elif [[ ! -f ~/.bashrc ]]; then
-    echo "# -- shell customization" >> ~/.bashrc
-    echo ". $INSTALLPATH/.bash_customize" >> ~/.bashrc
+    echo >> ~/$STARTUPFILE
+    echo "# -- shell customization" >> ~/$STARTUPFILE
+    echo ". $INSTALLPATH/.bash_customize" >> ~/$STARTUPFILE
+elif [[ ! -f ~/$STARTUPFILE ]]; then
+    echo "# -- shell customization" >> ~/$STARTUPFILE
+    echo ". $INSTALLPATH/.bash_customize" >> ~/$STARTUPFILE
 fi
 
 
