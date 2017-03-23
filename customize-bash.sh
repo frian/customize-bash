@@ -10,9 +10,23 @@ STARTUPFILES=( .bash_profile .bash_login .profile .bashrc )
 STARTUPFILE=.bashrc
 
 
-error=$(tput setaf 9)
-info=$(tput setaf 11)
+# -- output colors
+error=$(tput setaf 9)    # -- red
+warning=$(tput setaf 10) # -- green
+info=$(tput setaf 11)    # -- yellow
 reset=$(tput sgr0)
+
+
+# -- check if script is sourced
+if [[ $0 == $BASH_SOURCE ]]; then
+
+    echo -e "\n  ${warning}WARNING${reset} : please source the script\n"
+
+    echo -e "  ${info}source $0 $@ ${reset} or ${info}. $0 $@ ${reset} \n"
+
+    exit
+fi
+
 
 #
 # -- get and cd in script dir
@@ -24,14 +38,15 @@ SCRIPT=${BASH_SOURCE[0]}
 # -- absolute path to script dir
 SCRIPTPATH=$(dirname "${SCRIPT}")
 
-# -- cd to script dir for config sourcing
+# -- cd to script dir
 cd $SCRIPTPATH
 
 
 # -- enable getopts in sourced script
 OPTIND=1
 
-while getopts ":f:" opt; do
+# -- handle options
+while getopts ":f:h" opt; do
     case $opt in
         f)
             # -- check if file is startup file
@@ -49,9 +64,18 @@ while getopts ":f:" opt; do
                 return
             fi
 
-
             # -- store file name
             STARTUPFILE=$OPTARG
+        ;;
+        h)
+            echo -e "\n  usage : source $SCRIPT [ -f startup_file ] [ profile ] \n"
+
+            echo -n "    startup_file : "
+
+            id="${STARTUPFILES[@]}"
+            echo -e ${id// /, } '(default)' "\n"
+
+            return
         ;;
         \?)
             # -- invalid option
