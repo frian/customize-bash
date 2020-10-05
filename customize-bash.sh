@@ -192,13 +192,10 @@ done
 #
 # -- add . ~/.bash_customize to STARTUPFILE
 #
-echo "  add .bash_customize sourcing to bash if not present"
-if [[ -f ~/$STARTUPFILE ]] && ! grep -q ". $INSTALLPATH/.bash_customize" ~/$STARTUPFILE ; then
+echo "  add .bash_customize sourcing to $STARTUPFILE if not present"
+if [[ -f ~/$STARTUPFILE ]] && ! grep -q ". $INSTALLPATH/.bash_customize" ~/$STARTUPFILE || [[ ! -f ~/$STARTUPFILE ]]; then
     # -- add source the file to bashrc
     echo >> ~/$STARTUPFILE
-    echo "# -- shell customization" >> ~/$STARTUPFILE
-    echo ". $INSTALLPATH/.bash_customize" >> ~/$STARTUPFILE
-elif [[ ! -f ~/$STARTUPFILE ]]; then
     echo "# -- shell customization" >> ~/$STARTUPFILE
     echo ". $INSTALLPATH/.bash_customize" >> ~/$STARTUPFILE
 fi
