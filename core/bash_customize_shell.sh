@@ -24,13 +24,13 @@ alias du='du -h'
 #
 
 # -- add colors to egrep
-alias grep='egrep --color=always'
+alias egrep='egrep --color=always'
 
 # -- add colors to grep
 alias grep='grep --color=always'
 
 # -- add colors to fgrep
-alias grep='fgrep --color=always'
+alias fgrep='fgrep --color=always'
 
 
 # -- history
