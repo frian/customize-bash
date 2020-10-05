@@ -203,7 +203,7 @@ fi
 
 # -- load bashrc
 echo "  reloading config"
-. ~/.bashrc
+. ~/$STARTUPFILE
 
 # return to calling dir
 cd - 1>/dev/null
