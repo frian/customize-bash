@@ -4,7 +4,7 @@
 PROFILE=default
 
 # -- startup files list
-STARTUPFILES=( .bash_profile .bash_login .profile .bashrc )
+STARTUPFILES=(  .zshrc .bash_profile .bash_login .profile .bashrc)
 
 # -- default startup file
 STARTUPFILE=.bashrc
