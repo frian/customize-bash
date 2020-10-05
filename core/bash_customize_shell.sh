@@ -125,5 +125,12 @@ alias q='exit'
 alias sudo='sudo '
 
 
+# -- watch cpu frequency
+alias wcpu='watch -n1 "cat /proc/cpuinfo | grep MHz"'
+
+# -- watch memory usage
+alias wmem='watch -n1 free'
+
+
 # -- add resume to wget
 alias wget='wget -c'
