@@ -73,7 +73,7 @@ while getopts ":f:h" opt; do
             echo -n "    startup_file : "
 
             id="${STARTUPFILES[@]}"
-            echo -e ${id// /, } '(default)' "\n"
+            echo -e ${id// /, }'(default)' "\n"
 
             return
         ;;
