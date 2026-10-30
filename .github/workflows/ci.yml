@@ -1,0 +1,40 @@
+name: Bash CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck and syntax
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+      - name: Bash syntax (including legacy core)
+        run: |
+          find . -type f \( -name '*.sh' -o -name '*.sh.dist' \) -print0 | xargs -0 -r -n1 bash -n
+      - name: ShellCheck new v2 scripts
+        run: |
+          shellcheck --severity=warning --exclude=SC1090,SC1091 \
+            install.sh uninstall.sh init.sh customize-bash.sh \
+            lib/manage.sh tests/test_install.sh
+
+  integration:
+    name: Tests (Bash ${{ matrix.bash-version }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        bash-version: ['4.4', '5.2']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Real-core install, migration and uninstall tests
+        run: |
+          docker run --rm -v "$PWD:/repo:ro" -w /repo \
+            "bash:${{ matrix.bash-version }}" \
+            bash tests/test_install.sh
