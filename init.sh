@@ -17,16 +17,18 @@ _cb_config_dir=${XDG_CONFIG_HOME:-$HOME/.config}/customize-bash
 
 # Order matters: colors, profile settings, prompt, aliases, extra modules.
 . "$_cb_root/core/bash_customize_colors.sh"
-if [[ -f $_cb_config_dir/profile.sh ]]; then
-    . "$_cb_config_dir/profile.sh"
-elif [[ -f $_cb_profile_dir/bash_customize_profile.sh ]]; then
+if [[ -f $_cb_profile_dir/bash_customize_profile.sh ]]; then
     . "$_cb_profile_dir/bash_customize_profile.sh"
 elif [[ -f $_cb_profile_dir/bash_customize_profile.sh.dist ]]; then
     . "$_cb_profile_dir/bash_customize_profile.sh.dist"
-else
+elif [[ ! -f $_cb_config_dir/profile.sh ]]; then
     printf 'customize-bash: missing profile settings for %s\n' "$_cb_profile" >&2
     unset _cb_root _cb_profile _cb_profile_dir _cb_config_dir
     return 1
+fi
+# A personal profile overlays rather than replaces the selected profile.
+if [[ -f $_cb_config_dir/profile.sh ]]; then
+    . "$_cb_config_dir/profile.sh"
 fi
 . "$_cb_root/core/bash_customize_prompt_extras.sh"
 . "$_cb_root/core/bash_customize_prompt_colors.sh"
