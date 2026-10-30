@@ -17,7 +17,7 @@ if command -v git >/dev/null 2>&1; then
     [[ $(cd "$testroot" && cb_prompt_git_ref) == ' [testbranch]' ]] || fail 'Git branch not displayed'
 fi
 
-CUSTOMIZE_BASH_PROMPT_GIT=1 CUSTOMIZE_BASH_PROMPT_STATUS=1
+export CUSTOMIZE_BASH_PROMPT_GIT=1 CUSTOMIZE_BASH_PROMPT_STATUS=1
 source "$root/core/bash_customize_prompt_extras.sh"
 [[ $PROMPT_EXTRA == *'cb_prompt_exit_status'* ]] || fail 'missing status hook'
 [[ $PROMPT_EXTRA == *'cb_prompt_git_ref'* ]] || fail 'missing Git hook'
