@@ -31,7 +31,7 @@ Place your machine-specific profile settings in:
 ~/.config/customize-bash/profile.sh
 ```
 
-This optional file overrides the selected profile's `bash_customize_profile.sh` (or `.dist`). The directory can also contain modules:
+This optional file is sourced **after** the selected profile's `bash_customize_profile.sh` (or `.dist`), so you can override individual settings without copying the whole profile. The directory can also contain modules:
 
 ```text
 ~/.config/customize-bash/modules/git.sh
