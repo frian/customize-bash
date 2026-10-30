@@ -1,1 +1,3 @@
-alias sf='php app/console'
+# shellcheck shell=bash
+# -- optional Symfony console shortcut (Symfony 3+)
+alias sf='php bin/console'
