@@ -40,8 +40,8 @@ fi
 
 rc=$HOME/.bashrc
 [[ ! -L $rc ]] || fail 'refusing to replace a symlinked ~/.bashrc'
-[[ ! -e $rc || -f $rc ]] || fail '~/.bashrc is not a regular file'
-if [[ -f $rc && ! -r $rc ]]; then fail '~/.bashrc is not readable'; fi
+[[ ! -e $rc || -f $rc ]] || fail '.bashrc is not a regular file'
+if [[ -f $rc && ! -r $rc ]]; then fail '.bashrc is not readable'; fi
 
 begin='# >>> customize-bash v2 >>>'
 end='# <<< customize-bash v2 <<<'
