@@ -23,6 +23,9 @@ jobs:
           shellcheck --severity=warning --exclude=SC1090,SC1091 \
             install.sh uninstall.sh init.sh customize-bash.sh doctor.sh customize-bash \
             lib/manage.sh lib/doctor.sh tests/test_*.sh
+          shellcheck --severity=warning --exclude=SC1090,SC1091 \
+            core/bash_customize_shell.sh samples/bash_customize_git.sh \
+            samples/bash_customize_symfony.sh
 
   integration:
     name: Tests (Bash ${{ matrix.bash-version }})

@@ -1,4 +1,8 @@
 ## Unreleased
+* Modernized core aliases and functions: automatic colors, safer searches, HTTPS IP lookup, modern port listing, and new `lla`/`dus` shortcuts.
+* Fixed Git commit messages containing spaces, and updated Symfony's console path.
+* Removed obsolete Compass and empty SSH examples; added regression tests.
+* Documented aliases and cleaned up an accidentally duplicated README section.
 * Added read-only `doctor` checks and `./customize-bash` convenience CLI.
 * Optional Git branch and failure-status prompt indicators (off by default).
 
