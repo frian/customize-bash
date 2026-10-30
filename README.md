@@ -101,6 +101,26 @@ Bash may replace the previous command status before PS1 expands; the optional ex
 status indicator then reflects that modified status. Command-duration timing is
 intentionally excluded because obtaining it accurately would require intrusive hooks.
 
+## Check your setup
+
+Run a read-only diagnostic to inspect the current clone, startup hook, selected profile,
+and available user modules:
+
+```bash
+./doctor.sh
+# or
+./customize-bash doctor
+```
+
+The command reports missing files, a broken/mismatched `.bashrc` hook, an invalid
+installed profile, and optional legacy leftovers. It never executes `.bashrc`,
+loads modules, deletes files, or changes shell configuration. A nonzero exit code
+means that at least one required check failed.
+
+For convenience, `./customize-bash install` and `./customize-bash uninstall` are
+also available, with the same options as the standalone scripts. No PATH change
+is required.
+
 ## Update
 
 From the same clone:

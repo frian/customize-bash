@@ -1,4 +1,5 @@
 ## Unreleased
+* Added read-only `doctor` checks and `./customize-bash` convenience CLI.
 * Optional Git branch and failure-status prompt indicators (off by default).
 
 ## 2.0.0 (2026-10-30)

@@ -21,8 +21,8 @@ jobs:
       - name: ShellCheck new v2 scripts
         run: |
           shellcheck --severity=warning --exclude=SC1090,SC1091 \
-            install.sh uninstall.sh init.sh customize-bash.sh \
-            lib/manage.sh tests/test_*.sh
+            install.sh uninstall.sh init.sh customize-bash.sh doctor.sh customize-bash \
+            lib/manage.sh lib/doctor.sh tests/test_*.sh
 
   integration:
     name: Tests (Bash ${{ matrix.bash-version }})
