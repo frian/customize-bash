@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # -- optional Git aliases
 alias gita='git add .'
 alias gitc='gitCommit'

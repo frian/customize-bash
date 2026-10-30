@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # -- navigation
 alias b='cd ..'
 alias b2='cd ../..'
