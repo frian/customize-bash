@@ -21,7 +21,7 @@ source "$root/core/bash_customize_shell.sh"
 old_path=$PATH
 PATH='/a directory:/b:/c'
 [[ $(path) == $'/a directory\n/b\n/c' ]] || fail 'path split failed'
-LD_LIBRARY_PATH='/some library:/another'
+export LD_LIBRARY_PATH='/some library:/another'
 [[ $(libpath) == $'/some library\n/another' ]] || fail 'libpath split failed'
 unset LD_LIBRARY_PATH
 [[ -z $(libpath) ]] || fail 'libpath should handle unset variable'
