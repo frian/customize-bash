@@ -28,6 +28,7 @@ else
     unset _cb_root _cb_profile _cb_profile_dir _cb_config_dir
     return 1
 fi
+. "$_cb_root/core/bash_customize_prompt_extras.sh"
 . "$_cb_root/core/bash_customize_prompt_colors.sh"
 . "$_cb_root/core/bash_customize_shell.sh"
 

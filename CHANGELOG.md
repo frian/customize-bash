@@ -1,3 +1,6 @@
+## Unreleased
+* Optional Git branch and failure-status prompt indicators (off by default).
+
 ## 2.0.0 (2026-10-30)
 * Added non-destructive install and uninstall scripts with dry-run and backups.
 * Source configuration directly from the checked-out repository, with idempotent ~/.bashrc hooks.

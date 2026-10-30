@@ -39,7 +39,7 @@ elif [ $CONN = ssh -a $USR = nopriv ] ; then
 fi
 
 # -- set prompt
-PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER\[$NC\]\[$DARK_COLOR\]@\[$NC\]\[$BOLD_COLOR\]$PROMPT_HOST\[$NC\]\[$DARK_COLOR\]:\[$COLOR\]\w\[$DARK_COLOR\]\$ \[\033[00m\]"
+PS1="${debian_chroot:+($debian_chroot)}\[$BOLD_COLOR\]$PROMPT_USER\[$NC\]\[$DARK_COLOR\]@\[$NC\]\[$BOLD_COLOR\]$PROMPT_HOST\[$NC\]\[$DARK_COLOR\]:\[$COLOR\]\w${PROMPT_EXTRA:-}\[$DARK_COLOR\]\$ \[\033[00m\]"
 
 
 # If this is an xterm set the title to user@host:dir

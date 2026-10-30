@@ -22,7 +22,7 @@ jobs:
         run: |
           shellcheck --severity=warning --exclude=SC1090,SC1091 \
             install.sh uninstall.sh init.sh customize-bash.sh \
-            lib/manage.sh tests/test_install.sh
+            lib/manage.sh tests/test_*.sh
 
   integration:
     name: Tests (Bash ${{ matrix.bash-version }})
@@ -37,4 +37,4 @@ jobs:
         run: |
           docker run --rm -v "$PWD:/repo:ro" -w /repo \
             "bash:${{ matrix.bash-version }}" \
-            bash tests/test_install.sh
+            sh -c 'for f in tests/test_*.sh; do bash "$f" || exit; done'
