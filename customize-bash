@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+command=${1:-}
+(($#)) && shift || true
+case $command in
+    doctor) exec bash "$script_dir/doctor.sh" "$@" ;;
+    install) exec bash "$script_dir/install.sh" "$@" ;;
+    uninstall) exec bash "$script_dir/uninstall.sh" "$@" ;;
+    -h|--help|'') printf 'Usage: ./customize-bash {install|uninstall|doctor} [options]\n' ;;
+    *) printf 'Unknown command: %s\n' "$command" >&2; exit 2 ;;
+esac
